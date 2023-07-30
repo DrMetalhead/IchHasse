@@ -6,7 +6,7 @@
 /*   By: ricschmi <ricschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 09:58:44 by ricschmi          #+#    #+#             */
-/*   Updated: 2023/07/30 22:45:56 by ricschmi         ###   ########.fr       */
+/*   Updated: 2023/07/30 23:29:48 by ricschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,6 @@ char	*ft_strdup(char *src)
 		return (0);
 	while (src[i] != '\0')
 	{
-			if (src[i] == ' ')
-		{
-			while (src[i + 1] == ' ')
-				i++;
-		}
 		dest[i] = src[i];
 		i++;
 	}

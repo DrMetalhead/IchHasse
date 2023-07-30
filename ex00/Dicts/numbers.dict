@@ -1,6 +1,6 @@
 0: zero
 1: one
-2: two                       t
+2: two
 3: three
 4: four
 5: five
@@ -24,7 +24,7 @@
 
 
 
-20       :         twenty      tt      tt    
+20       : twenty
 30: thirty
 40: forty
 50: fifty

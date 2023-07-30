@@ -6,7 +6,7 @@
 /*   By: ricschmi <ricschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 09:59:22 by ricschmi          #+#    #+#             */
-/*   Updated: 2023/07/30 22:59:35 by ricschmi         ###   ########.fr       */
+/*   Updated: 2023/07/30 23:29:21 by ricschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_get_str(long long fd, char *c)
 	buffer = malloc(bufferSize * sizeof(char));
     if (!buffer)
         exit(1);
-    while (c[0] != '\n' && (c[0] >= 32 && c[0] <= 126))
+    while (c[0] != '\n')
     {
         buffer[i++] = c[0];
         read(fd, c, 1);
