@@ -6,7 +6,7 @@
 /*   By: ricschmi <ricschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:05:31 by ricschmi          #+#    #+#             */
-/*   Updated: 2023/07/30 19:15:49 by ricschmi         ###   ########.fr       */
+/*   Updated: 2023/08/01 09:34:02 by ricschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void *ft_realloc(void *ptr, size_t new_size)
     void *new_ptr = malloc(new_size);
     if (new_ptr == NULL)
         return NULL;
-    size_t old_size = sizeof(ptr);
+    size_t old_size = INITIAL_BUFFER_SIZE;
     size_t copy_size = (old_size < new_size) ? old_size : new_size;
     ft_memcpy(new_ptr, ptr, copy_size);
     free(ptr);

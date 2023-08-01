@@ -6,14 +6,14 @@
 /*   By: ricschmi <ricschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 09:44:29 by ricschmi          #+#    #+#             */
-/*   Updated: 2023/07/30 23:25:10 by ricschmi         ###   ########.fr       */
+/*   Updated: 2023/08/01 10:42:30 by ricschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RUSH_H
 # define RUSH_H
 
-# define INITIAL_BUFFER_SIZE 1
+# define INITIAL_BUFFER_SIZE 50
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -21,6 +21,7 @@
 # include <stddef.h>
 # include <stdbool.h>
 # include <limits.h>
+# include <stdio.h>
 
 typedef struct s_list
 {

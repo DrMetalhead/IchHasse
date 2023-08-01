@@ -6,44 +6,11 @@
 /*   By: ricschmi <ricschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 10:04:17 by ricschmi          #+#    #+#             */
-/*   Updated: 2023/07/30 23:08:21 by ricschmi         ###   ########.fr       */
+/*   Updated: 2023/08/01 10:11:59 by ricschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rush.h"
-
-bool is_valid_long_long(const char *str) {
-    // Skip leading whitespaces
-    while (*str == ' ' || (*str >= 9 && *str <= 13)) {
-        str++;
-    }
-
-    // Check for optional sign
-    if (*str == '+' || *str == '-') {
-        str++;
-    }
-
-    // Check if the string is empty or contains invalid characters
-    if (*str == '\0' || (*str < '0' || *str > '9')) {
-        return false;
-    }
-
-    // Loop through the remaining characters to check if it's a valid number
-    while (*str != '\0') {
-        if (*str < '0' || *str > '9') {
-            return false;
-        }
-        str++;
-    }
-
-    // Convert the string to a long long and check for overflow/underflow
-    long long num = atoll(str);
-    if (num > LLONG_MAX || num < LLONG_MIN) {
-        write(1, "Dict Error\n", 12);
-		return false;
-    }
-	return true;
-}
 
 long long	getdec(long long nb)
 {
@@ -111,8 +78,6 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		if (!is_valid_long_long(argv[1]))
-         return 0;
 		if (arg_check(ft_atoi(argv[1])) < 0)
 			return (0);
 		row = ft_read_dict("numbers.dict");
@@ -120,8 +85,6 @@ int	main(int argc, char **argv)
 	}
 	else if (argc == 3)
 	{
-		if (!is_valid_long_long(argv[2]))
-        	return (0);
 		if (arg_check(ft_atoi(argv[2])) < 0)
 			return (0);
 		row = ft_read_dict(argv[1]);
@@ -129,5 +92,6 @@ int	main(int argc, char **argv)
 	}
 	if (argc == 2 || argc == 3)
 		ft_free_list(row);
+	write(1, "\n", 1);
 	return (0);
 }

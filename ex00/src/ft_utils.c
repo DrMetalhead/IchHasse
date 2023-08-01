@@ -6,7 +6,7 @@
 /*   By: ricschmi <ricschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 09:58:44 by ricschmi          #+#    #+#             */
-/*   Updated: 2023/07/30 23:29:48 by ricschmi         ###   ########.fr       */
+/*   Updated: 2023/08/01 11:22:23 by ricschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,18 @@ void	ft_putchar(char c)
 
 void	ft_putstr(char *str)
 {
-	long long	letter;
+	long long	i;
 
-	letter = 0;
-	while (str[letter] != '\0')
+	i = 0;
+	while (str[i] != '\0')
 	{
-		ft_putchar(str[letter]);
-		letter++;
+		if (str[i] == ' ')
+		{
+			while (str[i + 1] == ' ')
+				i++;
+		}
+		ft_putchar(str[i]);
+		i++;
 	}
 }
 
@@ -46,8 +51,18 @@ long long	ft_atoi(char *str)
 			minus *= -1;
 		i++;
 	}
+	if (minus < 0)
+	{
+		write(1, "Error\n", 7);
+		return (-1);
+	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (num > (LLONG_MAX - (str[i] - '0')) / 10)
+		{
+			write(1, "Dict Error\n", 12);
+			return (-1);
+		}
 		num = (num * 10) + (str[i] - 48);
 		i++;
 	}
@@ -64,11 +79,9 @@ int	ft_strlen(char *src, int i)
 char	*ft_strdup(char *src)
 {
 	int		i;
-	int 	t;
 	char	*dest;
 
 	i = 0;
-	t = 0;
 	dest = malloc(ft_strlen(src, 0) + 1);
 	if (!dest)
 		return (0);
